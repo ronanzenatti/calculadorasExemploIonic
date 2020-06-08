@@ -7,6 +7,41 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  public primeiroValor: number;
+  public segundoValor: number;
+
+  public resultado: number;
+
+  constructor() { }
+
+  public somar() {
+    if (this.primeiroValor && this.segundoValor) {
+      this.resultado = this.primeiroValor + this.segundoValor;
+    }
+  }
+
+  public subtrair() {
+    if (this.primeiroValor && this.segundoValor) {
+      this.resultado = this.primeiroValor - this.segundoValor;
+    }
+  }
+
+  public multiplicar() {
+    if (this.primeiroValor && this.segundoValor) {
+      this.resultado = this.primeiroValor * this.segundoValor;
+    }
+  }
+
+  public dividir() {
+    if (this.primeiroValor && this.segundoValor) {
+      this.resultado = this.primeiroValor / this.segundoValor;
+    }
+  }
+
+  public limpar() {
+    this.primeiroValor = null;
+    this.segundoValor = null;
+    this.resultado = null;
+  }
 
 }
