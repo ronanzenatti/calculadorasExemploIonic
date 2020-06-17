@@ -6,14 +6,15 @@ ion-button {
 
 ion-content {
     --background: #000000;
+}
 
-    #botoes {
-        margin-top: 10px;
-    }
+ion-card.ios {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 ion-col {
-    height: calc(60vh / 5);
+    height: calc(55vh / 5);
 }
 
 ion-label {
