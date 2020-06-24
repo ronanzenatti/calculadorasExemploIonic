@@ -14,13 +14,12 @@ import { registerLocaleData } from '@angular/common';
 })
 export class Tab2Page {
 
-  public calculo = "";
+  public calculo = '';
   public resultado: string;
 
-  public operacao = false;
   public ponto = false;
 
-  private operacoes = ['+', '-', "*", "/"];
+  private operacoes = ['+', '-', '*', '/'];
 
   constructor(public alertController: AlertController) {
     registerLocaleData(localePtBr);
@@ -28,7 +27,7 @@ export class Tab2Page {
 
   public adicionarNumero(valor) {
     if (this.resultado) {
-      this.calculo = "";
+      this.calculo = '';
       this.resultado = null;
       this.ponto = false;
     }
@@ -41,7 +40,7 @@ export class Tab2Page {
       return;
     }
     this.ponto = true;
-    this.calculo += ".";
+    this.calculo += '.';
   }
 
   public adicionaOperacao(operador: string) {
@@ -57,35 +56,28 @@ export class Tab2Page {
 
     this.calculo += operador;
     this.ponto = false;
-    this.operacao = true;
   }
 
   calculaResultado() {
     try {
       this.resultado = evaluate(this.calculo);
-      console.log(this.resultado)
     } catch (e) {
-      this.resultado = "";
+      this.resultado = '';
       this.presentAlert('ERRO!', 'Cálculo inválido!')
     }
   }
 
   public apagarTudo() {
-    this.calculo = "";
+    this.calculo = '';
     this.resultado = null;
     this.ponto = false;
-    this.operacao = false;
   }
 
   apagarUltimo() {
     const ultimo = this.calculo.slice(this.calculo.length - 1);
 
-    if (ultimo == ".") {
+    if (ultimo == '.') {
       this.ponto = false;
-    }
-
-    if (this.operacoes.indexOf(ultimo) > -1) {
-      this.operacao = false;
     }
 
     this.calculo = this.calculo.slice(0, -1);
